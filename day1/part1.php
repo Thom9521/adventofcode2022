@@ -1,5 +1,5 @@
 <?php
-$data = file_get_contents("data.txt");
+$data = file_get_contents(__DIR__ . "./data.txt");
 
 $caloriesSeperatedByElf = explode("\r\n\r\n", $data);
 
