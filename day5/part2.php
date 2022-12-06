@@ -33,9 +33,16 @@ foreach ($dataAsArray as $row) {
     $from = trim($rowAsArray[3]);
     $to = trim($rowAsArray[5]);
 
+    $tmpArray = [];
+
     for ($i = 0; $i < $move; $i++) {
-        $stackedCrates[$to][] = end($stackedCrates[$from]);
+        $tmpArray[] = end($stackedCrates[$from]);
         array_pop($stackedCrates[$from]);
+    }
+
+    $tmpArray = array_reverse($tmpArray);
+    foreach ($tmpArray as $item) {
+        $stackedCrates[$to][] = $item;
     }
 }
 
